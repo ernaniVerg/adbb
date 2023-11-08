@@ -8,7 +8,6 @@ from pyspark.sql import SparkSession
 
 #app = func.FunctionApp()
 bp = func.Blueprint() 
-
 #@app.function_name(name="HttpTrigger1")
 #@app.route(route="req")
 @bp.route(route="default_template")
