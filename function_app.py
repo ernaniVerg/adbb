@@ -7,4 +7,4 @@ app = func.FunctionApp()
 def main(req: func.HttpRequest) -> str:
     #user = req.params.get("user")
     #return f"Hello, {user}!"
-    return "Hello, man!"
+    return "Hello, man ok!"
