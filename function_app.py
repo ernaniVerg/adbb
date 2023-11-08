@@ -11,6 +11,7 @@ app = func.FunctionApp()
 @app.route(route="req")
 
 def main(req: func.HttpRequest) -> str:
-    user = req.params.get("text")
-    return f"Hello, {user}!"
+    user = req.get_json()
+    #user = req.params.get("text")
+    return f"Hello, {user.text}!"
     #return "Hello, man ok!"
