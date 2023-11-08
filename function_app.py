@@ -12,5 +12,5 @@ app = func.FunctionApp()
 
 def main(req: func.HttpRequest) -> str:
     user = req.params.get("text")
-    return f"Hello, {text}!"
+    return f"Hello, {user}!"
     #return "Hello, man ok!"
