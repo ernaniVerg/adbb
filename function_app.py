@@ -19,5 +19,5 @@ def main(req: func.HttpRequest) -> str:
     #filename = "data.zip"
     #path, headers = urlretrieve(url, filename)
     #ref = spark.read.csv(path,header = True)
-    return f"{ print(data) }"
+    return data
     #return "Hello, man ok!"
