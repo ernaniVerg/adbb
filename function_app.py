@@ -3,9 +3,9 @@ import azure.functions as func
 import pandas as pd
 import numpy
 #import pyspark.pandas as ps
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
-from urllib.request import urlretrieve
+#from pyspark.sql import SparkSession
+#from pyspark.sql.functions import *
+#from urllib.request import urlretrieve
 
 app = func.FunctionApp()
 
@@ -19,5 +19,5 @@ def main(req: func.HttpRequest) -> str:
     #filename = "data.zip"
     #path, headers = urlretrieve(url, filename)
     #ref = spark.read.csv(path,header = True)
-    return data
+    return f"{ print(data) }"
     #return "Hello, man ok!"
