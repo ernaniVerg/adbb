@@ -14,5 +14,5 @@ def main(req: func.HttpRequest) -> str:
     spark = SparkSession.builder.appName("Exemplo").getOrCreate()
     data = req.params.get("text")
     ref = spark.read.csv(data,header = True)
-    return f"{ref.show}"
+    return f"{print(ref.show())}"
     #return "Hello, man ok!"
