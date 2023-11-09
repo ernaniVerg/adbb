@@ -22,7 +22,7 @@ def default_template(req: func.HttpRequest) -> func.HttpResponse:
         except ValueError: 
             pass 
         else: 
-            name = req_body.get('name') 
+            name = req_body.get('text') 
 
     if name: 
         return func.HttpResponse( 
