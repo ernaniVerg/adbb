@@ -1,10 +1,9 @@
 import azure.functions as func
 #import logging 
-import pandas as pd
-import numpy
-import pyspark.pandas as ps
-from pyspark.sql import SparkSession
-
+#import pandas as pd
+#import numpy
+#import pyspark.pandas as ps
+#from pyspark.sql import SparkSession
 
 app = func.FunctionApp()
 
