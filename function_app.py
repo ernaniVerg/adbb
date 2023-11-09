@@ -11,6 +11,8 @@ app = func.FunctionApp()
 @app.route(route="req")
 
 def main(req: func.HttpRequest) -> str:
-    user = req.params.get("text")
-    return f"Hello, {user}!"
+    spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+    data = req.params.get("text")
+    ref = spark.read.csv(data,header = True)
+    return f"{ref.show}"
     #return "Hello, man ok!"
