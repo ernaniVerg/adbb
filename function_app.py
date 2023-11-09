@@ -1,7 +1,7 @@
 import azure.functions as func
 #import logging 
 import pandas as pd
-#import numpy
+import numpy
 #import pyspark.pandas as ps
 from pyspark.sql import SparkSession
 
