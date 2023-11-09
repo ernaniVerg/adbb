@@ -13,10 +13,14 @@ app = func.FunctionApp()
 @app.route(route="req")
 
 def main(req: func.HttpRequest) -> str:
-    spark = SparkSession.builder.appName("Exemplo").getOrCreate()
-    url = req.params.get("text")
-    filename = "data.zip"
-    path, headers = urlretrieve(url, filename)
-    ref = spark.read.csv(path,header = True)
-    return ref.show()
+    try :
+        spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+        url = req.params.get("text")
+        filename = "data.zip"
+        path, headers = urlretrieve(url, filename)
+        ref = spark.read.csv(path,header = True)
+        return ref.show()
+    except Exception as e:
+        return e
+
     #return "Hello, man ok!"
