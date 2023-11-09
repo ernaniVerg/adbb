@@ -4,6 +4,8 @@ import pandas as pd
 import numpy
 #import pyspark.pandas as ps
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from urllib.request import urlretrieve
 
 app = func.FunctionApp()
 
@@ -12,7 +14,9 @@ app = func.FunctionApp()
 
 def main(req: func.HttpRequest) -> str:
     spark = SparkSession.builder.appName("Exemplo").getOrCreate()
-    data = req.params.get("text")
-    ref = spark.read.csv(data,header = True)
-    return f"{print(ref.show())}"
+    url = req.params.get("text")
+    filename = "data.zip"
+    path, headers = urlretrieve(url, filename)
+    ref = spark.read.csv(path,header = True)
+    return f"{ref.show()}"
     #return "Hello, man ok!"
