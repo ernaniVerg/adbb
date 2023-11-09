@@ -5,7 +5,7 @@ import numpy
 #import pyspark.pandas as ps
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
-#from urllib.request import urlretrieve
+from urllib.request import urlretrieve
 
 app = func.FunctionApp()
 
@@ -13,15 +13,11 @@ app = func.FunctionApp()
 @app.route(route="req")
 
 def main(req: func.HttpRequest) -> str:
-    try :
-        spark = SparkSession.builder.appName("Exemplo").getOrCreate()
-        path = req.params.get("text")
-        #filename = "data.zip"
-        #path, headers = urlretrieve(url, filename)
-        ref = spark.read.csv(path,header = True)
-        return ref.show()
-    
-    except Exception as e:
-        return e
-
+    #spark = SparkSession.builder.appName("Exemplo").getOrCreate()
+    url = req.params.get("text")
+    data = pd.read_csv(url,sep=',',encoding='utf-8')
+    #filename = "data.zip"
+    #path, headers = urlretrieve(url, filename)
+    #ref = spark.read.csv(path,header = True)
+    return data
     #return "Hello, man ok!"
